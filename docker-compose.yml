@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:5.0.5
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - mirai
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mirai
+      MONGO_INITDB_ROOT_PASSWORD: mirai
+
+volumes:
+  mongo_data:
+
+networks:
+  mirai:
