@@ -12,9 +12,14 @@ among other technologies.
 ## Common Tasks
 
 - Run the project
-    ```bash
-    ./gradlew bootRun
-    ```
+  1. Run Docker compose
+      ```bash
+      docker-compose up -d
+      ```
+  2. Run Spring
+      ```bash
+      ./gradlew bootRun
+      ```
 - Build the project
     ```bash
     ./gradlew build
