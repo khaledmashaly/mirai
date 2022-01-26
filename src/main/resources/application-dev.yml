@@ -1,0 +1,9 @@
+spring.data.mongodb:
+  authentication-database: admin
+  auto-index-creation: true
+  database: mirai
+  host: localhost
+  password: mirai
+  port: 27017
+  username: mirai
+  uuid-representation: standard
