@@ -22,6 +22,6 @@ class GetManyNotesIntegrationTests: MiraiApplicationTests() {
             .expectStatus().isOk
             .expectBody()
                 .jsonPath("$").isArray
-                .jsonPath("$").value(hasSize<Any>(3))
+                .jsonPath("$").value(hasSize<Any>(2))
     }
 }
