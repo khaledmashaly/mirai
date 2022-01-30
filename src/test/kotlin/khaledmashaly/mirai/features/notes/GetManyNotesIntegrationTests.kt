@@ -17,7 +17,7 @@ class GetManyNotesIntegrationTests: MiraiApplicationTests() {
     fun `Returns a list of notes`() {
         testClient
             .get()
-            .uri("/note")
+            .uri("/v1/note")
             .exchange()
             .expectStatus().isOk
             .expectBody()
