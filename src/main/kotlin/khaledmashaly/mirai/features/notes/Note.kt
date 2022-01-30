@@ -11,11 +11,11 @@ class Note(
     @Id
     val id: UUID = UUID.randomUUID(),
     @CreatedDate
-    val createdDate: LocalDateTime,
+    val createdDate: LocalDateTime = LocalDateTime.now(),
     @LastModifiedDate
-    val lastModifiedDate: LocalDateTime,
+    val lastModifiedDate: LocalDateTime = LocalDateTime.now(),
     @Version
-    val version: Long,
+    val version: Long = 0,
     val title: String,
     val description: String,
 )
