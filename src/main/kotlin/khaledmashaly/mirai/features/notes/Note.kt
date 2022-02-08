@@ -7,7 +7,7 @@ import java.util.*
 
 @Document
 @TypeAlias("mirai.features.note")
-class Note(
+data class Note(
     @Id
     val id: UUID = UUID.randomUUID(),
     @CreatedDate
