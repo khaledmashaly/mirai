@@ -10,12 +10,16 @@ import java.util.*
 data class Note(
     @Id
     val id: UUID = UUID.randomUUID(),
+
     @CreatedDate
-    val createdDate: LocalDateTime = LocalDateTime.now(),
+    val createdDate: LocalDateTime? = null,
+
     @LastModifiedDate
-    val lastModifiedDate: LocalDateTime = LocalDateTime.now(),
+    val lastModifiedDate: LocalDateTime? = null,
+
     @Version
-    val version: Long = 0,
+    val version: Long? = null,
+
     val title: String,
     val description: String,
 )
