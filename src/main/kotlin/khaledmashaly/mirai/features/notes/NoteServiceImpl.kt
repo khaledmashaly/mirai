@@ -19,4 +19,6 @@ class NoteServiceImpl(
             description = "second description"
         )
     )
+
+    override fun createNote(note: Note) = noteRepo.save(note)
 }
