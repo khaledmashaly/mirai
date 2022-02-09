@@ -17,16 +17,16 @@ class CreateNoteIntegrationTests: MiraiApplicationTests() {
 
         testClient
             .post()
-            .uri("/v1/note")
-            .contentType(MediaType.APPLICATION_JSON)
-            .bodyValue(request)
+                .uri("/v1/note")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(request)
             .exchange()
-            .expectStatus().isCreated
-            .expectBody()
-            .jsonPath("$.length()").value(`is`(6))
-            .jsonPath("$.id").exists()
-            .jsonPath("$.title").value(`is`("new note title"))
-            .jsonPath("$.description").value(`is`("new note description"))
+                .expectStatus().isCreated
+                .expectBody()
+                    .jsonPath("$.length()").value(`is`(6))
+                    .jsonPath("$.id").exists()
+                    .jsonPath("$.title").value(`is`("new note title"))
+                    .jsonPath("$.description").value(`is`("new note description"))
 
         val eventualCount = mongoOps.count(Query(), Note::class.java)
 
