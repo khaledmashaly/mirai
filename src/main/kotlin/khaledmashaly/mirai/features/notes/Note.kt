@@ -1,6 +1,8 @@
 package khaledmashaly.mirai.features.notes
 
 import org.springframework.data.annotation.*
+import org.springframework.data.mongodb.core.index.IndexDirection
+import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDateTime
 import java.util.*
@@ -12,6 +14,7 @@ data class Note(
     val id: UUID = UUID.randomUUID(),
 
     @CreatedDate
+    @Indexed(direction = IndexDirection.DESCENDING, useGeneratedName = true, background = true)
     val createdDate: LocalDateTime? = null,
 
     @LastModifiedDate
