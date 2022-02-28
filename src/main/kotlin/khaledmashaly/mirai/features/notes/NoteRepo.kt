@@ -6,5 +6,5 @@ import reactor.core.publisher.Flux
 import java.util.*
 
 interface NoteRepo: ReactiveMongoRepository<Note, UUID> {
-    fun findAll(pageable: Pageable): Flux<Note>
+    fun findAllBy(pageable: Pageable): Flux<Note>
 }
