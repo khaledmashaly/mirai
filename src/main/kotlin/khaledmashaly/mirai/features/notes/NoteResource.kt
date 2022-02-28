@@ -1,5 +1,7 @@
 package khaledmashaly.mirai.features.notes
 
+import khaledmashaly.mirai.features.core.dto.request.params.PagingParams
+import khaledmashaly.mirai.features.notes.dto.params.NoteServiceGetManyParams
 import khaledmashaly.mirai.features.notes.dto.request.CreateNoteRequest
 import lombok.extern.slf4j.Slf4j
 import org.springframework.http.HttpStatus
@@ -15,12 +17,17 @@ class NoteResource(
     val noteService: NoteService
 ) {
     @GetMapping
-    fun getManyNotes() = noteService.getManyNotes()
+    fun getManyNotes(@Valid paging: PagingParams) = noteService.getManyNotes(
+        NoteServiceGetManyParams(
+            page = paging.page,
+            size = paging.size,
+        )
+    )
 
     @PostMapping(
         path = [""],
         consumes = [MediaType.APPLICATION_JSON_VALUE],
-        produces = [MediaType.APPLICATION_JSON_VALUE]
+        produces = [MediaType.APPLICATION_JSON_VALUE],
     )
     @ResponseStatus(HttpStatus.CREATED)
     fun createNote(@Valid @RequestBody eventualRequest: Mono<CreateNoteRequest>) =
